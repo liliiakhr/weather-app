@@ -1,0 +1,107 @@
+body {
+  font-family: "Varela Round", sans-serif;
+  margin: 50px;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 48px;
+  text-align: left;
+}
+
+.container {
+  max-width: 900px;
+  max-height: 700px;
+  border: solid;
+  border-radius: 20px;
+  border-color: #194350;
+  padding: 30px;
+  margin: 20px auto;
+  background-image: url(img.jpg);
+  /* background-image: linear-gradient(
+    to right top,
+    #d8e3e7,
+    #d9e9e8,
+    #deeee6,
+    #e9f2e3,
+    #f8f4e1
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    hsla(213, 77%, 14%, 1) 0%,
+    hsla(202, 27%, 45%, 1) 100%
+  ); */
+}
+
+.search {
+  text-align: center;
+}
+
+.search-bar {
+  width: 50%;
+  transition: 300ms;
+}
+
+#locationBtn:hover {
+  background-color: white;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.search-button:hover {
+  background-color: white;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.search-button,
+.search-bar,
+#locationBtn {
+  border-radius: 12px;
+  padding: 10px 20px;
+  border-color: #194350;
+}
+
+.weather-now {
+  padding: 40px 10px 20px;
+  margin: 30px;
+}
+
+.condition-now {
+  padding: 20px 10px;
+  font-size: 20px;
+}
+
+.icon-now {
+  font-size: 40px;
+}
+
+.temperature-now {
+  font-size: 60px;
+  padding: 0px;
+  font-weight: 700;
+}
+
+.measure {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+#celcius:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+#fahrenheit:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.forecast {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  padding: 30px;
+  padding-top: 20px;
+}
+
+.day-temp {
+  font-weight: 700;
+}
