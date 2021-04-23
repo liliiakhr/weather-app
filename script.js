@@ -34,7 +34,6 @@ let weatherNow = document.querySelector("#weatherNow");
 weatherNow.innerHTML = `${hours}:${minutes} | ${day}, ${month} ${date}`;
 
 //Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
-let searchBar = document.querySelector(".search-bar");
 let button = document.querySelector(".search-button");
 
 function displayWeather(response) {
