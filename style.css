@@ -65,7 +65,8 @@ h1 {
   margin: 25px;
 }
 
-.cityDateCondNow:first-letter {
+.cityDateCondNow,
+#condition:first-letter {
   text-transform: capitalize;
 }
 
@@ -79,11 +80,11 @@ p#weatherNow {
 }
 
 .condition-now {
-  padding: 20px 10px;
+  padding: 0px 10px;
   font-size: 20px;
 }
 
-.icon-now {
+#icon {
   font-size: 40px;
   padding: auto;
 }
