@@ -60,10 +60,18 @@ h1 {
   border-color: #194350;
 }
 
-.weather-now {
+.cityDateCondNow {
   padding: 20px 10px 0px;
   margin: 25px;
+}
+
+.cityDateCondNow:first-letter {
   text-transform: capitalize;
+}
+
+.weather-now {
+  padding: 0px;
+  margin: 0px 25px;
 }
 
 p#weatherNow {
@@ -77,6 +85,7 @@ p#weatherNow {
 
 .icon-now {
   font-size: 40px;
+  padding: auto;
 }
 
 .temperature-now {
@@ -97,6 +106,10 @@ p#weatherNow {
 #fahrenheit:hover {
   font-weight: bold;
   cursor: pointer;
+}
+
+.conditions {
+  list-style-type: none;
 }
 
 .forecast {

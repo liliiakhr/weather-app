@@ -39,9 +39,11 @@
         <input type="submit" class="search-button" value="Search" />
       </div>
 
-      <div class="row weather-now">
+      <!-- NOW info -->
+      <div class="row cityDateCondNow">
         <div class="col-7">
           <h1>Munich</h1>
+          Last updated:
           <p id="weatherNow">
             <span>15</span>:<span>00</span> | <span>Friday</span>,
             <span>April</span>
@@ -49,16 +51,28 @@
           </p>
           <span id="condition"> Clear sky</span>
         </div>
+      </div>
 
+      <!-- Weather now -->
+      <div class="row weather-now">
+        <div class="col-2 condition-now icon-now">🌞</div>
         <div class="col-1 condition-now temperature-now">
           <span id="tempNum">12</span>°
         </div>
         <div class="col-2 condition-now measure">
           <span id="celcius">°C</span>|<span id="fahrenheit">°F</span>
         </div>
-        <div class="col-2 condition-now icon-now">🌞</div>
+        <div class="col-2"></div>
+        <div class="col-5">
+          <ul class="conditions">
+            <!-- <li>Precipitation: <span id="precipitation"></span></li> -->
+            <li>Humidity: <span id="humidity">50</span>%</li>
+            <li>Wind: <span id="wind">5</span> km/h</li>
+          </ul>
+        </div>
       </div>
 
+      <!-- Forecast -->
       <div class="row forecast">
         <div class="col-2">
           Tomorrow <br />
