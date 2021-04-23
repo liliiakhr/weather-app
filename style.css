@@ -61,8 +61,13 @@ h1 {
 }
 
 .weather-now {
-  padding: 40px 10px 20px;
-  margin: 30px;
+  padding: 20px 10px 0px;
+  margin: 25px;
+  text-transform: capitalize;
+}
+
+p#weatherNow {
+  margin-bottom: 0px;
 }
 
 .condition-now {
@@ -95,7 +100,7 @@ h1 {
 }
 
 .forecast {
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
   text-align: center;
   font-size: 20px;
   padding: 30px;

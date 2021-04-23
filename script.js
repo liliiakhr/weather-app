@@ -42,6 +42,8 @@ function displayWeather(response) {
   document.querySelector("#tempNum").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#condition").innerHTML =
+    response.data.weather[0].description;
 }
 
 button.addEventListener("click", displayCity);
@@ -65,7 +67,8 @@ function getCurrentLocation(event) {
 let locationBtn = document.querySelector("#locationBtn");
 locationBtn.addEventListener("click", getCurrentLocation);
 
-//Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
+//Display a fake temperature (i.e 17) in Celsius and add a link to convert it to Fahrenheit. When clicking on it,
+//  it should convert the temperature to Fahrenheit. When clicking on Celsius, it should convert it back to Celsius.
 
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", toCelcius);
