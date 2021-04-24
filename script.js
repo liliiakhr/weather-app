@@ -284,20 +284,24 @@ weatherNow.innerHTML = `${hours}:${minutes} | ${day}, ${month} ${date}`;
 //Add a search engine, when searching for a city (i.e. Paris), display the city name on the page after the user submits the form.
 let form = document.querySelector("#search-form");
 
-function displayWeather(data) {
-  document.querySelector("h1").innerHTML = data.name;
-  document.querySelector("#tempNum").innerHTML = Math.round(data.main.temp);
-  document.querySelector("#condition").innerHTML = data.weather[0].description;
-  document.querySelector("#humidity").innerHTML = data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(data.wind.speed);
-  document.querySelector("#country").innerHTML = data.sys.country;
-  console.log(data);
-
+function displayWeather(response) {
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#tempNum").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#condition").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  let countryCode = response.data.sys.country;
+  document.querySelector("#country").innerHTML = countries[countryCode];
   document
     .querySelector("#icon")
     .setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
 }
 
@@ -307,9 +311,7 @@ function displayCity(event) {
   let apiKey = "3cae5d2a22ddfbae361da9e3bc9faa10";
   let city = document.querySelector(".search-bar").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then((response) => {
-    displayWeather(response.data);
-  });
+  axios.get(apiUrl).then(displayWeather);
 }
 function searchCurrentLocation(position) {
   let apiKey = "3cae5d2a22ddfbae361da9e3bc9faa10";
