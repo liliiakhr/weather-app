@@ -20,6 +20,10 @@ video {
   min-height: 100%;
 }
 
+form {
+  right: 0px;
+}
+
 a {
   color: wheat;
   text-shadow: #194350;
@@ -67,6 +71,10 @@ a:hover {
   border-radius: 12px;
   padding: 10px 20px;
   border-color: #194350;
+  display: inline-block;
+}
+#locationBtn {
+  right: 0px;
 }
 
 .cityDateCondNow {
@@ -92,7 +100,9 @@ p#weatherNow {
   padding: 0px 10px;
   font-size: 20px;
 }
-
+#country {
+  font-weight: 800;
+}
 #icon {
   font-size: 40px;
   padding: auto;

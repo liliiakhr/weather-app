@@ -27,24 +27,32 @@
     <video src="forest.mp4" autoplay muted loop></video>
     <!-- Search engine -->
     <div class="container">
-      <div class="search">
-        <button id="locationBtn">
-          <i class="fas fa-search-location"></i>
-        </button>
-        <input
-          class="search-bar"
-          type="search"
-          placeholder="Enter your city here..."
-          autosave="off"
-          autocomplete="off"
-        />
-        <input type="submit" class="search-button" value="Search" />
+      <div class="row search">
+        <div class="col-2"></div>
+        <div class="col-6">
+          <form id="search-form">
+            <input
+              class="search-bar"
+              type="search"
+              placeholder="Enter your city here..."
+              autosave="off"
+              autocomplete="off"
+            />
+            <input type="submit" class="search-button" value="Search" />
+          </form>
+        </div>
+        <div class="col-2">
+          <button id="locationBtn">
+            <i class="fas fa-search-location"></i>
+          </button>
+        </div>
       </div>
 
       <!-- NOW info -->
       <div class="row cityDateCondNow">
         <div class="col-7">
           <h1>Munich</h1>
+          <span id="country"> <strong>Germany</strong> </span> <br />
           Last updated:
           <p id="weatherNow">
             <span>15</span>:<span>00</span> | <span>Friday</span>,
