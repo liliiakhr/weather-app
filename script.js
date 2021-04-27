@@ -305,6 +305,7 @@ function displayWeather(response) {
     );
   getForecast(response.data.coord);
   // returns {lon: -0.1257, lat: 51.5085}
+  celciusBool = true;
 }
 
 function getForecast(coordinates) {
@@ -346,13 +347,25 @@ let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", toFahrenheit);
 
 let temperature = document.querySelector("#tempNum");
+// let dayTemperature = document.querySelector(".day-temp");
+// let nightTemperature = document.querySelector(".night-temp");
 let celciusBool = true;
 
 function toFahrenheit() {
   let tempValue = document.querySelector("#tempNum").textContent;
   let newTemp = Math.round((parseInt(tempValue) * 9) / 5 + 32);
+  let dayTempValue = document.querySelector(".day-temp").textContent;
+  console.log(document.querySelector(".day-temp"));
+  console.log(dayTempValue);
+  let newDayTempValue = Math.round((parseInt(dayTempValue) * 9) / 5 + 32);
+  console.log(newDayTempValue);
+  console.log(celciusBool);
+  let nightTempValue = document.querySelector(".night-temp").textContent;
+  let newNightTempValue = Math.round((parseInt(nightTempValue) * 9) / 5 + 32);
   if (celciusBool) {
     temperature.innerHTML = newTemp;
+    document.querySelector(".day-temp").innerHTML = newDayTempValue;
+    document.querySelector(".night-temp").innerHTML = newNightTempValue;
   }
   celciusBool = false;
 }
@@ -360,8 +373,14 @@ function toFahrenheit() {
 function toCelcius() {
   let tempValue = document.querySelector("#tempNum").textContent;
   let newTemp = Math.round(((parseInt(tempValue) - 32) * 5) / 9);
+  let dayTempValue = document.querySelector(".day-temp").textContent;
+  let newDayTempValue = Math.round(((parseInt(dayTempValue) - 32) * 5) / 9);
+  let nightTempValue = document.querySelector(".night-temp").textContent;
+  let newNightTempValue = Math.round(((parseInt(nightTempValue) - 32) * 5) / 9);
   if (!celciusBool) {
     temperature.innerHTML = newTemp;
+    document.querySelector(".day-temp").innerHTML = newDayTempValue;
+    document.querySelector(".night-temp").innerHTML = newNightTempValue;
   }
   celciusBool = true;
 }
@@ -369,7 +388,6 @@ function toCelcius() {
 function displayForecast(response) {
   let forecastElement = document.querySelector(".forecast");
   let forecast = response.data.daily;
-  console.log(forecast);
   let forecastHTML = `<div class = "row">`;
 
   forecast.forEach(function (forecastDay, index) {
@@ -385,16 +403,16 @@ function displayForecast(response) {
           width="42"
           /> </div>
           <div class="temperature">
-            <div class="day-temp">${Math.round(
+            <span class="day-temp">${Math.round(
               forecastDay.temp.max
-            )}°</span>/<span class="night-temp"
-              >${Math.round(forecastDay.temp.min)}°
-            </div>
+            )}</span>°/<span class="night-temp"
+              >${Math.round(forecastDay.temp.min)}
+            </span>°
           </div>
         </div>`;
     }
   });
-  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
