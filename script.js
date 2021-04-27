@@ -309,11 +309,9 @@ function displayWeather(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "3cae5d2a22ddfbae361da9e3bc9faa10";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
-  console.log(apiUrl);
 }
 
 form.addEventListener("submit", displayCity);
@@ -354,18 +352,24 @@ let celciusBool = true;
 function toFahrenheit() {
   let tempValue = document.querySelector("#tempNum").textContent;
   let newTemp = Math.round((parseInt(tempValue) * 9) / 5 + 32);
-  let dayTempValue = document.querySelector(".day-temp").textContent;
-  console.log(document.querySelector(".day-temp"));
-  console.log(dayTempValue);
-  let newDayTempValue = Math.round((parseInt(dayTempValue) * 9) / 5 + 32);
-  console.log(newDayTempValue);
-  console.log(celciusBool);
-  let nightTempValue = document.querySelector(".night-temp").textContent;
-  let newNightTempValue = Math.round((parseInt(nightTempValue) * 9) / 5 + 32);
+  let listDayTemp = document.querySelectorAll(".day-temp");
+  let listNightTemp = document.querySelectorAll(".night-temp");
+
   if (celciusBool) {
     temperature.innerHTML = newTemp;
-    document.querySelector(".day-temp").innerHTML = newDayTempValue;
-    document.querySelector(".night-temp").innerHTML = newNightTempValue;
+    listDayTemp.forEach(function (row) {
+      let dayTempValue = row.textContent;
+      let newDayTempValue = Math.round((parseInt(dayTempValue) * 9) / 5 + 32);
+      row.innerHTML = newDayTempValue;
+    });
+
+    listNightTemp.forEach(function (row) {
+      let nightTempValue = row.textContent;
+      let newNightTempValue = Math.round(
+        (parseInt(nightTempValue) * 9) / 5 + 32
+      );
+      row.innerHTML = newNightTempValue;
+    });
   }
   celciusBool = false;
 }
@@ -373,15 +377,25 @@ function toFahrenheit() {
 function toCelcius() {
   let tempValue = document.querySelector("#tempNum").textContent;
   let newTemp = Math.round(((parseInt(tempValue) - 32) * 5) / 9);
-  let dayTempValue = document.querySelector(".day-temp").textContent;
-  let newDayTempValue = Math.round(((parseInt(dayTempValue) - 32) * 5) / 9);
-  let nightTempValue = document.querySelector(".night-temp").textContent;
-  let newNightTempValue = Math.round(((parseInt(nightTempValue) - 32) * 5) / 9);
+  let listDayTemp = document.querySelectorAll(".day-temp");
+  let listNightTemp = document.querySelectorAll(".night-temp");
   if (!celciusBool) {
     temperature.innerHTML = newTemp;
-    document.querySelector(".day-temp").innerHTML = newDayTempValue;
-    document.querySelector(".night-temp").innerHTML = newNightTempValue;
+    listDayTemp.forEach(function (row) {
+      let dayTempValue = row.textContent;
+      let newDayTempValue = Math.round(((parseInt(dayTempValue) - 32) * 5) / 9);
+      row.innerHTML = newDayTempValue;
+    });
+
+    listNightTemp.forEach(function (row) {
+      let nightTempValue = row.textContent;
+      let newNightTempValue = Math.round(
+        ((parseInt(nightTempValue) - 32) * 5) / 9
+      );
+      row.innerHTML = newNightTempValue;
+    });
   }
+
   celciusBool = true;
 }
 
